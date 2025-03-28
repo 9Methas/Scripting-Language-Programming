@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <form>
+            <input type="text" name="firstname" maxlength="10" size="10"placeholder="First Name" required>
+            <input type="text" name="lastname" maxlength="10" size="10"placeholder="Last Name" required><BR>
+            <input type="email" name="email" size="26" placeholder="Your E-mail"required><BR>
+            <input type="password" name="pwd" maxlength="8" size="26" placeholder="Your Password" pattern="[A-Za-z0-9]{8}" required><BR>
+            <input type="tel" name="mobile" maxlength="13" size="26" placeholder="Mobile:(xxx)xxx-xxxx" pattern="[(][0-9]{3}[)][0-9]{3}[-][0-9]{4}" required><BR>
+            <input type="date" name="birthday" max="1995-12-31" min="1991-01-01"required><BR>
+            Age: 1<input type="range" name="points" min="1" max="100">100
+            <p><input type="radio" name="sex" value="male">Male
+            <input type="radio" name="sex" value="female">Female
+            </p>
+            <input type="submit" value="Sign up">
+        </form>
+    </body>
+</html>

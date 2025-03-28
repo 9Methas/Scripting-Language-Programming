@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="showData.js"></script>
+    <script type="text/javascript">
+        function changeImg(imgID) {
+            var imgSrc = "./avatar/avatar" + imgID + ".jpg";
+            $("#pic").html('<img src="' + imgSrc + '">');
+            $("#hid").val(imgSrc);
+            if (imgID == 1) {
+                $("body").css("background-color", "green");
+            }
+        }
+        function changecol(imgID) {
+            var imgSrc = "./avatar/avatar" + imgID + ".jpg";
+            $("#pic").html('<img src="' + imgSrc + '">');
+            $("#hid").val(imgSrc);
+
+            if (imgID == 1) {
+                $("body").css("background-color", "green");
+            } else if (imgID == 2) {
+                $("body").css("background-color", "yellow");
+            } else if (imgID == 3) {
+                $("body").css("color", "red");
+            } else if (imgID == 4) {
+                $("input").css("background-color", "blue");
+            } 
+        }
+        // Function to hide inputs when hovering over image 5
+        function hideInputs() {
+        $("input").hide(); // Hide all inputs
+        $("select").hide();
+        }
+
+        // Function to show inputs when mouse leaves the image 5
+        function showInputs() {
+            $("input").show(); // Show all inputs
+            $("select").show();
+        }
+    </script>
+</head>
+<body>
+    <table align="center">
+        <tr>
+            <td><img src="./avatar/avatar1.jpg" width="45" onclick="changeImg(1)" onclick="changecol(1)"></td>
+            <td><img src="./avatar/avatar2.jpg" width="45" onclick="changeImg(2)" ondblclick="changecol(2)"></td>
+            <td><img src="./avatar/avatar3.jpg" width="45" onclick="changeImg(3)" ondblclick="changecol(3)"></td>
+            <td><img src="./avatar/avatar4.jpg" width="45" onclick="changeImg(4)" ondblclick="changecol(4)"></td>
+            <td><img src="./avatar/avatar5.jpg" width="45" onclick="changeImg(5)" onmouseover="hideInputs()"></td>
+            <td><img src="./avatar/avatar6.jpg" width="45" onclick="changeImg(6)" onmouseout="showInputs()"></td>
+        </tr>
+    </table>
+
+    <br>
+    <p id="note"></p>
+    <br>
+
+    <table align="center">
+        <form name="myForm" action="insert.php" method="post" autocomplete="on" enctype="multipart/form-data">
+            <tr>
+                <td id="pic"><img src="./avatar/avatar1.jpg"></td>
+                <td><input type="hidden" id="hid" name="avatar" value="./avatar/avatar1.jpg"></td>
+            </tr>
+            <tr>
+                <td>Firstname:</td>
+                <td><input type="text" name="firstname" maxlength="10" size="20" id="firstname" onblur="searchName(this.value)"></td>
+            </tr>
+            <tr>
+                <td>Lastname:</td>
+                <td><input type="text" name="lastname" maxlength="10" size="20" id="lastname"></td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td><input type="number" name="age" min="1" max="100" id="age"></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <select name="gender" id="gender">
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><br><input type="submit" name="Save" value="Save">
+                    <input type="reset" name="Cancel" value="Cancel">
+                </td>
+            </tr>
+        </form>
+    </table>
+</body>
+</html>
